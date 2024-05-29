@@ -1,0 +1,32 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+}
+
+
+
+.colored-back {
+  background-color: #DDDDDD;
+  width: auto;
+  height: 693px;
+}
+
+.image-container {
+  width: 50%;
+  height: auto;
+  position: relative;
+  overflow: hidden;
+}
+
+.my-img {
+  width: 200px;
+}
+
+.slider ul li {
+  display: none;
+}
+
+.slider ul li:first-child {
+  display: block;
+}
