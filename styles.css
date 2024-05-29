@@ -6,11 +6,59 @@
 
 
 
+/* first-section */
+
 .colored-back {
   background-color: #DDDDDD;
   width: auto;
   height: 693px;
 }
+
+.headerlike {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.blue-dot {
+  color: #0081FF;
+}
+.roca {
+  margin: 90px;
+}
+
+
+.h2 {
+  font-size: 50px;
+}
+.resume-template {
+  font-size: 14px;
+  opacity: 100%;
+   color: #B3B3B3;
+}
+
+
+.aboutme01 {
+ position: relative;
+  margin: 90px;
+}
+
+.a01 {
+  font-size: 100px;
+}
+
+.aboutme {
+  color: #373737;
+  font-size: 30px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: max-content;
+}
+ 
+
+/* slide-imgstyles */
 
 .image-container {
   width: 50%;
@@ -20,13 +68,37 @@
 }
 
 .my-img {
-  width: 200px;
+  width: 250px;
+  border-radius: 30%;
 }
 
 .slider ul li {
   display: none;
 }
 
+.slider {
+  display: flex;
+  justify-content: flex-start;
+  margin-left: 500px;
+}
 .slider ul li:first-child {
   display: block;
+}
+
+
+.person-main-info {
+  display: flex;
+  align-items: center;
+}
+
+.name-occupation {
+  margin-left: 200px;
+  line-height: 63px;
+}
+.Hi {
+  font-size: 51px;
+}
+
+.occupation {
+font-size: 23px;
 }

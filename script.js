@@ -7,7 +7,7 @@ let activeSlide = 0;
 
 
 function showSlide(index) {
-  slides.forEach((slide, i) => {
+  slides.forEach((slide, i) => {  
     slide.style.display = i === index? 'block' : 'none';
   });
 }
