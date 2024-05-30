@@ -76,12 +76,13 @@
 }
 
 .my-img {
-  width: 250px;
-  border-radius: 30%;
+  width: 625px;
+  border-radius: 40px;
 }
 
 .slider ul li {
   display: none;
+  transition: opacity 0.5s ease-in-out;
 }
 
 .slider {
@@ -109,7 +110,7 @@
   margin-left: 200px;
   line-height: 63px;
 
-  @media (max-width: 850px) {
+  @media (max-width: 1120px) {
     margin: 15px auto;
     text-align: center;
   }
@@ -120,4 +121,10 @@
 
 .occupation {
 font-size: 23px;
+}
+
+.media-icons {
+  width: 25px;
+  border-radius: 50%;
+  margin: 25px 9px;
 }
