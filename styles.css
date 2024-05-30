@@ -4,6 +4,11 @@
   padding: 0;
 }
 
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
 @font-face {
   font-family: 'Glacial Indifference';
@@ -11,6 +16,7 @@
   font-weight: normal;
   font-style: normal;
 }
+
 
 /* first-section */
 
@@ -127,4 +133,74 @@ font-size: 23px;
   width: 25px;
   border-radius: 50%;
   margin: 25px 9px;
+}
+
+
+/* section2 */
+
+.section2-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  height: auto;
+  font-family: 'Glacial Indifference', sans-serif;
+  position: relative;
+  margin-top: 90px;
+  max-width: 1051px;
+}
+
+.information {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  line-height: 28px;
+
+  *:not(:first-child) {
+    margin: 7px 0;
+  }
+
+
+}
+
+.my-name-again {
+  color: #222222;
+}
+
+.occupation2 {
+  color: #DAAE19;
+}
+
+.description {
+  width:334px ;
+  text-align: justify;
+}
+
+.middle-img-wrap {
+
+}
+
+
+
+.hire-me {
+  background-color: #E93656;
+  color:#FFFFFF;
+  border: none;
+  padding: 15px;
+  width: 120px;
+}
+.middle-img-itself {
+  width: 200px;
+}
+
+.skills {
+  display: flex;
+  flex-direction: column;
+}
+.persentage {
+  color: #E93656;
+}
+
+.languages {
+  color: #555555;
 }
