@@ -67,14 +67,79 @@ function showSlide(index) {
 }
 
 
-setInterval(() => {
-  slides[activeSlide].classList.remove('active'); 
-  activeSlide++; 
+// setInterval(() => {
+//   slides[activeSlide].classList.remove('active'); 
+//   activeSlide++; 
   
-  if (activeSlide === slideCount) { 
-    activeSlide = 0;
-  }
+//   if (activeSlide === slideCount) { 
+//     activeSlide = 0;
+//   }
   
-  slides[activeSlide].classList.add('active');
-  showSlide(activeSlide); 
-}, 5000);
+//   slides[activeSlide].classList.add('active');
+//   showSlide(activeSlide); 
+// }, 5000);
+
+
+
+
+// percantage animation
+
+
+// document.addEventListener('DOMContentLoaded', function() {
+//   const progressBars = document.querySelectorAll('.progress-bar');
+
+//   function updateProgressBars() {
+//     progressBars.forEach(bar => {
+//       const percentageSpan = bar.querySelector('.persentage');
+//       if (percentageSpan) {
+//         const percentageText = percentageSpan.textContent.match(/\((\d+)%\)/)[1];
+//         const progressBar = bar.querySelector('.progress-bar');
+//         const rect = progressBar.getBoundingClientRect();
+//         const windowHeight = window.innerHeight;
+//         const isVisible = rect.top <= windowHeight && rect.bottom >= 0;
+
+//         if (isVisible) {
+//           const widthPercentage = parseInt(percentageText, 10);
+//           bar.style.setProperty('--width-percentage', `${widthPercentage}%`);
+//         } else {
+//           bar.style.setProperty('--width-percentage', '0%');
+//         }
+//       }
+//     });
+//   }
+
+//   window.addEventListener('scroll', updateProgressBars);
+// });
+
+
+
+function move() {
+  var elem = document.getElementById("myBar");
+  var width = 10;
+
+  // Check if the element is in view
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(entry => {
+      console.log('entry', entry)
+      if (entry.isIntersecting) {
+        // Element is in view, start the animation
+        var id = setInterval(frame, 10);
+
+        function frame() {
+          if (width >= 90) {
+            clearInterval(id);
+          } else {
+            width++;
+            elem.style.width = width + '%';
+          }
+        }
+      }
+    });
+  });
+
+  // Observe the element
+  observer.observe(elem);
+}
+
+// Call the move function initially to set up the observer
+document.addEventListener('DOMContentLoaded', move);
