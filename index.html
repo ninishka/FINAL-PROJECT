@@ -20,8 +20,10 @@
             </div>
         </div>
         <div class="person-main-info">
+          <button class="button-next" id="prev">&lt;</button>
           <div id="slider" class="slider">
           </div>
+          <button class="button-next" id="next">&gt;</button>
           <div class="name-occupation">
             <h2 class="Hi">Hi, I' Am <br>Nini Zambakhidze</h2>
             <h3 class="occupation">I am Front End Developer</h3>
@@ -48,39 +50,53 @@
           Hire Me
           </button></a>
       </div>
+      
       <div class="middle-img-wrap">
         <img class="middle-img-itself" src="imgs/Untitled 14-pdf.png" alt="niniimg">
       </div>
-      <!-- <div class="skills">
-        <div id="htmlBar" class="progress-bar">
-          <p class="languages">HTML
-          <span class="percentage">(90%)</span></p>
-        </div>
-        <div id="cssBar" class="progress-bar">
-          <p class="languages">CSS
-          <span class="percentage">(80%)</span></p>
-        </div>
-        <div id="jsBar" class="progress-bar">
-          <p class="languages">JavaScript
-          <span class="percentage">(45%)</span></p>
-        </div>
-        <div id="reactBar" class="progress-bar">
-          <p class="languages">React
-          <span class="percentage">(10%)</span></p>
-        </div>
-      </div> -->
 
-      <div>
-        <h2>Dynamic Progress Bar</h2>
-        
-        <div style="background-color: gray;">
-          <div id="myBar" style="height:24px;width:100%;background-color: red;"></div>
+      <div class="bar-wrapper">
+        <div class="item">
+          <div class="languages">
+            <p>HTML</p>
+            <span class="persentage">(90%)</span>
+          </div>
+          <div class="bar-cont">
+            <div id="myBar1" class="myBar"></div>
+          </div>       
         </div>
-        
-        <button class="w3-button w3-green" onclick="move()">Click Me</button> 
+
+        <div class="item">
+          <div class="languages">
+            <p>CSS</p>
+            <span class="persentage">(85%)</span>
+          </div>
+          <div class="bar-cont">
+            <div id="myBar2"  class="myBar">
+            </div>
+          </div>       
+        </div>
+
+        <div class="item">
+          <div class="languages">
+            <p>JavaScript</p>
+            <span class="persentage">(45%)</span>
+          </div>
+          <div class="bar-cont">
+            <div id="myBar3"  class="myBar"></div>
+          </div>       
+        </div>
+
+        <div class="item">
+          <div class="languages">
+            <p>React Native</p>
+            <span class="persentage">(15%)</span>
+          </div>
+          <div class="bar-cont">
+            <div id="myBar4"  class="myBar"></div>
+          </div>       
+        </div>
       </div>
-      
-
     </section>
   </main>
   <script src="script.js"></script>

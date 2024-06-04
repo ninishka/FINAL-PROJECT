@@ -66,18 +66,37 @@ function showSlide(index) {
   });
 }
 
+const fu = () => {
+  slides[activeSlide].classList.remove('active'); 
 
-// setInterval(() => {
-//   slides[activeSlide].classList.remove('active'); 
-//   activeSlide++; 
+  activeSlide++;
   
-//   if (activeSlide === slideCount) { 
-//     activeSlide = 0;
-//   }
+  if (activeSlide === slideCount) { 
+    activeSlide = 0;
+  }
   
-//   slides[activeSlide].classList.add('active');
-//   showSlide(activeSlide); 
-// }, 5000);
+  slides[activeSlide].classList.add('active');
+  showSlide(activeSlide); 
+}
+
+
+setInterval(() => {
+  fu()
+}, 5000);
+
+
+
+// Next button click event
+document.getElementById('next').addEventListener('click', function() {
+  fu()
+});
+
+// Previous button click event
+document.getElementById('prev').addEventListener('click', function() {
+  fu()
+});
+
+
 
 
 
@@ -112,34 +131,45 @@ function showSlide(index) {
 // });
 
 
+const progressBarData = [
+  { id: "myBar1", finalWidth: 90 },
+  { id: "myBar2", finalWidth: 85 },
+  { id: "myBar3", finalWidth: 45 },
+  { id: "myBar4", finalWidth: 20 },
+];
+
 
 function move() {
-  var elem = document.getElementById("myBar");
-  var width = 10;
+  let width = 10;
 
-  // Check if the element is in view
-  var observer = new IntersectionObserver(function(entries) {
+  const observer = new IntersectionObserver(function(entries) {
     entries.forEach(entry => {
-      console.log('entry', entry)
       if (entry.isIntersecting) {
-        // Element is in view, start the animation
-        var id = setInterval(frame, 10);
+        const id = setInterval(frame, 10);
 
         function frame() {
-          if (width >= 90) {
+          const targetWidth = progressBarData.find(bar => bar.id === entry.target.id)?.finalWidth || 20; //not 100
+
+          if (width >= targetWidth) {
             clearInterval(id);
           } else {
             width++;
-            elem.style.width = width + '%';
+            progressBarData.forEach(bar => {
+              if (bar.id === entry.target.id) {
+                entry.target.style.width = width + '%';
+              }
+            });
           }
         }
       }
     });
   });
 
-  // Observe the element
-  observer.observe(elem);
+  progressBarData.forEach(data => {
+    observer.observe(document.getElementById(data.id));
+  });
 }
 
-// Call the move function initially to set up the observer
 document.addEventListener('DOMContentLoaded', move);
+
+
