@@ -11,11 +11,11 @@ const slidesData = [
   },
   {
     title: 'Title2',
-    src: 'imgs/Untitled 15-pdf.png'
+    src: 'imgs/Untitled 16 (2)-pdf.png'
   },
   {
     title: 'Title3',
-    src: 'imgs/Untitled 14-pdf.png'
+    src: 'imgs/Untitled 16 (2)-pdf.png'
   },
 ]
 
@@ -50,8 +50,8 @@ generateSlides()
 
 
 
-// ===============================================
-// animation
+//
+// animation of imgs//
 
 
 // after generateSlides there are full ul-li-img structure and styles, now it can be used below
@@ -66,70 +66,46 @@ function showSlide(index) {
   });
 }
 
-const fu = () => {
-  slides[activeSlide].classList.remove('active'); 
 
-  activeSlide++;
-  
-  if (activeSlide === slideCount) { 
-    activeSlide = 0;
+
+function changeSlide (movingForward = true) { // here movingForward is true by default, unless i send other value instead
+  slides[activeSlide].classList.remove('active');
+
+  if (movingForward) {
+    activeSlide++;
+    if (activeSlide === slideCount) {
+      activeSlide = 0;
+    }
+  } else {
+    activeSlide--;
+    if (activeSlide < 0) {
+      activeSlide = slideCount - 1; 
+    }
   }
-  
-  slides[activeSlide].classList.add('active');
-  showSlide(activeSlide); 
-}
 
+  slides[activeSlide].classList.add('active');
+  showSlide(activeSlide);
+};
 
 setInterval(() => {
-  fu()
+  changeSlide()
 }, 5000);
-
-
 
 // Next button click event
 document.getElementById('next').addEventListener('click', function() {
-  fu()
+  changeSlide()
 });
 
 // Previous button click event
 document.getElementById('prev').addEventListener('click', function() {
-  fu()
+  changeSlide(false) // so here i send false, and thats mean movingForward will be false
 });
 
 
 
 
 
-
-// percantage animation
-
-
-// document.addEventListener('DOMContentLoaded', function() {
-//   const progressBars = document.querySelectorAll('.progress-bar');
-
-//   function updateProgressBars() {
-//     progressBars.forEach(bar => {
-//       const percentageSpan = bar.querySelector('.persentage');
-//       if (percentageSpan) {
-//         const percentageText = percentageSpan.textContent.match(/\((\d+)%\)/)[1];
-//         const progressBar = bar.querySelector('.progress-bar');
-//         const rect = progressBar.getBoundingClientRect();
-//         const windowHeight = window.innerHeight;
-//         const isVisible = rect.top <= windowHeight && rect.bottom >= 0;
-
-//         if (isVisible) {
-//           const widthPercentage = parseInt(percentageText, 10);
-//           bar.style.setProperty('--width-percentage', `${widthPercentage}%`);
-//         } else {
-//           bar.style.setProperty('--width-percentage', '0%');
-//         }
-//       }
-//     });
-//   }
-
-//   window.addEventListener('scroll', updateProgressBars);
-// });
-
+///progressbar///=========
 
 const progressBarData = [
   { id: "myBar1", finalWidth: 90 },

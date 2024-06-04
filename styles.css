@@ -7,8 +7,12 @@
 main {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  /* align-items: center; */
 }
+h1,h2,h3,p,span {
+  font-weight: 100;
+}
+
 
 @font-face {
   font-family: 'Glacial Indifference';
@@ -49,6 +53,7 @@ p {
 
 .h2 {
   font-size: 35px;
+  font-weight: 100;
 }
 .resume-template {
   font-size: 14px;
@@ -87,18 +92,15 @@ p {
 }
 
 .my-img {
-  /* width: 625px; I DID IT */
-  max-height: 500px;
-
-  border-radius: 40px;
+  max-height: 700px;
+  border-radius: 20%;
   @media (max-width: 625px) {
     width: 300px;
   }
 }
 
 .button-next {
-  position: relative;
-  z-index: 2;
+  
   background-color: rgb(255, 255, 255);
   color: rgb(0, 0, 0);
   border-radius: 50%;
@@ -171,13 +173,13 @@ font-size: 23px;
 .section2-wrapper {
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
   width: 100%;
   height: auto;
   font-family: 'Glacial Indifference-Bold', sans-serif;
   position: relative;
   margin-top: 90px;
-  max-width: 1051px;
+  /* max-width: 1051px; */
   @media (max-width: 756px) {
     flex-direction: column;
   }
@@ -218,23 +220,16 @@ font-size: 23px;
   padding: 15px;
   width: 120px;
 }
+
+.hire-me:hover {
+  background-color: #DDDDDD;
+  color:  #222222;
+
+}
 .middle-img-itself {
-  width: 200px;
+  width: 300px;
+  margin: 69px;
 }
-
-
-/* @keyframes fill-gray {
-  from { width: 100%; }
-  to { width: 100%; }
-}
-
-@keyframes fill-red {
-  from { width: 0%; }
-  to { width: 90%; }
-} */
-
-
-
 
 .bar-wrapper {
   display: flex; 
@@ -258,4 +253,71 @@ font-size: 23px;
 .persentage {
   color: #E93656;
   padding: 13px;
+}
+
+
+.contact-me-wrapper {
+  background-color: #131A36;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  position: relative;
+  @media (max-width: 828px) {
+    flex-direction: column;
+  }
+}
+
+.contact-me {
+  display: flex;
+  flex-direction: row;
+  padding: 25px;
+}
+
+.information-address {
+  color: #FFFFFF;
+  font-size: 25px;
+}
+
+.address {
+  color: #DFDFDF;
+  font-size: 14px;
+  text-align: left;
+  letter-spacing: 0.42px;
+  line-height: 30px;
+}
+.info-icons-wrap {
+  display: flex;
+  flex-direction: row;
+}
+
+.icon-parrent {
+ position: relative;
+ border-radius: 50%;
+}
+
+.info-icons {
+  width: 35px;
+  height: 35px;
+  display: inline-block;
+}
+
+.rounded-border:hover {
+ background-color: #E93656;
+ border: 2px solid transparent;
+}
+.info-wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 20px;
+  position: relative;
+}
+
+.rounded-border {
+  display: inline-block;
+  border: 2px dashed white;
+  overflow: hidden;
+  padding: 24px;
+  background-color: #131A36;
+  border-radius: 50%;
 }
