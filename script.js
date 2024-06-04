@@ -19,6 +19,8 @@ const slidesData = [
   },
 ]
 
+
+
 // creating func to generate content inside -> const slider
 function generateSlides () {
   // creating parent element ul for use just after creating
@@ -47,6 +49,7 @@ function generateSlides () {
 }
 
 generateSlides()
+
 
 
 
@@ -148,4 +151,98 @@ function move() {
 
 document.addEventListener('DOMContentLoaded', move);
 
+
+
+
+
+
+
+// GENERATEBOX func
+// 1 create div BOX
+// 2 inside create div img-container
+// 3 inside create img-itself
+// 4 inside create p label-box
+// 5 inside create p description-box
+// 6 apendChild img-itself to img-container
+// 7 apendChild img-container to BOX
+// 8 apendChild label-box
+// 9 apendChild description-box
+
+
+// created extandable data array of objects
+const flexCont = document.getElementById('flexCont');
+const boxesData = [
+  {
+    title: 'Graphichs Design',
+    description: 'Lorem ipm dolor amet, consecte adipiing lit Sunt sed ad possimus magm maiores.Ipsa dolor',
+    src: 'imgs/google+.png'
+  },
+  {
+    title: 'Graphichs Design',
+    description: 'Lorem ipm dolor amet, consecte adipiing lit Sunt sed ad possimus magm maiores.Ipsa dolor',
+    src: 'imgs/google+.png'
+  },
+  {
+    title: 'Graphichs Design',
+    description: 'Lorem ipm dolor amet, consecte adipiing lit Sunt sed ad possimus magm maiores.Ipsa dolor',
+    src: 'imgs/google+.png'
+  },
+  {
+    title: 'Graphichs Design',
+    description: 'Lorem ipm dolor amet, consecte adipiing lit Sunt sed ad possimus magm maiores.Ipsa dolor',
+    src: 'imgs/google+.png'
+  },
+  {
+    title: 'Graphichs Design',
+    description: 'Lorem ipm dolor amet, consecte adipiing lit Sunt sed ad possimus magm maiores.Ipsa dolor',
+    src: 'imgs/google+.png'
+  },
+  {
+    title: 'Graphichs Design',
+    description: 'Lorem ipm dolor amet, consecte adipiing lit Sunt sed ad possimus magm maiores.Ipsa dolor',
+    src: 'imgs/google+.png'
+  },
+  {
+    title: 'Graphichs Design',
+    description: 'Lorem ipm dolor amet, consecte adipiing lit Sunt sed ad possimus magm maiores.Ipsa dolor',
+    src: 'imgs/google+.png'
+  },
+  {
+    title: 'Graphichs Design',
+    description: 'Lorem ipm dolor amet, consecte adipiing lit Sunt sed ad possimus magm maiores.Ipsa dolor',
+    src: 'imgs/google+.png'
+  },
+]
+
+function flexBoxes () {
+  boxesData.forEach(i => { 
+    const box = document.createElement('div');
+    box.classList.add('box');
+
+    const imgContainer = document.createElement('div');
+    imgContainer.classList.add('img-container');
+
+    const imgitself = document.createElement('img');
+    imgitself.classList.add('img-itself');
+    imgitself.src = i.src;
+    
+    const labelBox = document.createElement('p');
+    labelBox.classList.add('label-box');
+    labelBox.textContent = i.title;
+
+    const descriptionBox = document.createElement('p');
+    descriptionBox.classList.add('description-box');
+    descriptionBox.textContent = i.description;
+
+    imgContainer.appendChild(imgitself);
+    box.appendChild(imgContainer);
+    box.appendChild(labelBox);
+    box.appendChild(descriptionBox); 
+
+    flexCont.appendChild(box)
+  })
+
+}
+
+flexBoxes()
 

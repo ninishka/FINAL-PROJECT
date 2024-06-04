@@ -262,6 +262,7 @@ font-size: 23px;
   width: 100%;
   justify-content: center;
   position: relative;
+  font-family: 'Glacial Indifference-Bold', sans-serif;
   @media (max-width: 828px) {
     flex-direction: column;
   }
@@ -320,4 +321,54 @@ font-size: 23px;
   padding: 24px;
   background-color: #131A36;
   border-radius: 50%;
+}
+
+
+
+
+
+.arround-grid {
+  margin: 10vw 20vw;
+}
+
+/* .flex-container {
+  display: flex;
+  justify-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+
+}
+
+.box {
+  background-color: lightblue; 
+  padding: 117px 97px; 
+  text-align: center; 
+  margin: 5px;
+
+} */
+#flexCont {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.box {
+  padding: 28px;
+  margin: 3px;
+  width: 180px;
+  background-color:#FAFAFA;
+  opacity: 97%;
+  /* border: 1px solid lightgray;  */
+  box-shadow: -1px 1px 4px lightgrey;
+}
+
+.description-box {
+  /* display: none; */
+  
+}
+
+.img-container {
+  display: flex;
+  justify-content: center;
+  
 }
