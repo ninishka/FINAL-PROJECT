@@ -173,44 +173,44 @@ document.addEventListener('DOMContentLoaded', move);
 const flexCont = document.getElementById('flexCont');
 const boxesData = [
   {
-    title: 'Graphichs Design',
+    title: 'Front End Development',
     description: 'Lorem ipm dolor amet, consecte adipiing lit Sunt sed ad possimus magm maiores.Ipsa dolor',
-    src: 'imgs/google+.png'
+    src: 'imgs2/design.svg'
   },
   {
-    title: 'Graphichs Design',
+    title: 'Best Service',
     description: 'Lorem ipm dolor amet, consecte adipiing lit Sunt sed ad possimus magm maiores.Ipsa dolor',
-    src: 'imgs/google+.png'
+    src: 'imgs2/service.svg'
   },
   {
-    title: 'Graphichs Design',
+    title: 'Unique Ideas',
     description: 'Lorem ipm dolor amet, consecte adipiing lit Sunt sed ad possimus magm maiores.Ipsa dolor',
-    src: 'imgs/google+.png'
+    src: 'imgs2/ideas.svg'
   },
   {
-    title: 'Graphichs Design',
+    title: 'Pixel Perfect',
     description: 'Lorem ipm dolor amet, consecte adipiing lit Sunt sed ad possimus magm maiores.Ipsa dolor',
-    src: 'imgs/google+.png'
+    src: 'imgs2/pixel.svg'
   },
   {
-    title: 'Graphichs Design',
+    title: 'Unique Ideas',
     description: 'Lorem ipm dolor amet, consecte adipiing lit Sunt sed ad possimus magm maiores.Ipsa dolor',
-    src: 'imgs/google+.png'
+    src: 'imgs2/ideas.svg'
   },
   {
-    title: 'Graphichs Design',
+    title: 'Design Analysis',
     description: 'Lorem ipm dolor amet, consecte adipiing lit Sunt sed ad possimus magm maiores.Ipsa dolor',
-    src: 'imgs/google+.png'
+    src: 'imgs2/analysis.svg'
   },
   {
-    title: 'Graphichs Design',
+    title: 'Fully Managed',
     description: 'Lorem ipm dolor amet, consecte adipiing lit Sunt sed ad possimus magm maiores.Ipsa dolor',
-    src: 'imgs/google+.png'
+    src: 'imgs2/chart.svg'
   },
   {
-    title: 'Graphichs Design',
+    title: 'Helpful Support',
     description: 'Lorem ipm dolor amet, consecte adipiing lit Sunt sed ad possimus magm maiores.Ipsa dolor',
-    src: 'imgs/google+.png'
+    src: 'imgs2/support.svg'
   },
 ]
 
@@ -226,7 +226,7 @@ function flexBoxes () {
     imgitself.classList.add('img-itself');
     imgitself.src = i.src;
     
-    const labelBox = document.createElement('p');
+    const labelBox = document.createElement('h5');
     labelBox.classList.add('label-box');
     labelBox.textContent = i.title;
 
