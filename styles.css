@@ -18,6 +18,7 @@ h1,h2,h3,p,span {
   font-family: 'Glacial Indifference';
   src: url('fonts/glacial-indifference.regular.otf') format('opentype');
   src: url('fonts/GlacialIndifference-Bold.otf') format('opentype');
+  src: url('fonts/Roboto-Light.ttf') format('opentype');
   font-weight: normal;
   font-style: normal;
 }
@@ -434,6 +435,9 @@ font-size: 23px;
 .quote {
   display: flex;
   flex-direction: column;
+  margin-left: 30px;
+  line-height: 27px;
+  font-family: 'Glacial Indifference-Bold', sans-serif;
 }
 
 .section-wrapper-img {
@@ -447,14 +451,17 @@ font-size: 23px;
   width: 100%;
 }
 
-
-
 .overlay-text,.icon-wrap,.quote {
   padding: 15px;
 }
 
 .overlay-text {
   max-width: 400px;
+  font-size: 11px;
+  font-family: 'Roboto light', sans-serif;
+  letter-spacing: 1px;
+  line-height: 20px;
+  color:#DDDDDD;
 }
 
 .content-wrap {
@@ -464,6 +471,19 @@ font-size: 23px;
   display: flex;
   align-items: center;
   justify-content: center;
+  color: #FFFFFF;
+
+  @media (max-width: 830px) {
+    flex-direction: column;
+    height: auto;
+  }
+}
+
+.changed-content-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
 
   @media (max-width: 830px) {
     flex-direction: column;
@@ -485,8 +505,64 @@ font-size: 23px;
   transition-duration: 1s;
 }
 
-
 .icon-wrap:hover{
   background-color: #E93656;
   border: 2px solid transparent;
+}
+.ptext {
+  color: #E93656;
+  font-size: 13px;
+}
+
+.rectangle {
+  width: 13px;
+  height: 13px;
+  background-color: transparent;
+  border: 2px solid white;
+  margin: 8px;
+
+  position: relative;
+}
+.rectangle:hover {
+  border: 2px solid #E93656;
+}
+
+.rectangle-wrap {
+  display: flex;
+  flex-direction: column;
+  margin-left: 87px;
+
+  @media (max-width: 830px) {
+    flex-direction: row;
+  }
+}
+
+.rectangle-button1 {
+  border: none;
+  cursor: pointer;
+}
+
+#button1, #button2, #button3 {
+  width: 14px;
+  height: 14px;
+  cursor: pointer;
+  color:black;
+  appearance: none;
+  border: none;
+
+  position: absolute;
+  left: -2px;
+  top: -2px;
+}
+
+#button1:checked,
+#button2:checked,
+#button3:checked {
+  border: 3.5px solid red ;
+}
+
+
+.rectangle-wrap {
+  margin: 20px;
+  overflow: hidden;
 }

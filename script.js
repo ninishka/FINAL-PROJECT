@@ -247,3 +247,79 @@ function flexBoxes () {
 flexBoxes()
 
 
+
+const changedContentForCheckboxes = [
+  {
+    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse repudiandae ex officiis molestiae soluta harum',
+    srcPerson: 'imgs2/d3.svg',
+    srcQuote: 'imgs2/quote.svg',
+    role: 'Junior front end Developer',
+    name: 'Sarah Sharashidze'
+  },
+  {
+    description: 'Esse repudiandae ex officiis molestiae soluta harum. Esse repudiandae ex officiis molestiae soluta harum. Esse repudiandae ex officiis molestiae soluta harum',
+    srcPerson: 'imgs2/d4.svg',
+    srcQuote: 'imgs2/quote.svg',
+    role: 'Middle front end Developer',
+    name: 'Sarah Sharashidze'
+  },
+  {
+    description: 'Esse repudiandae ex officiis molestiae soluta harum. Esse repudiandae ex officiis molestiae soluta harum',
+    srcPerson: 'imgs2/d5.svg',
+    srcQuote: 'imgs2/quote.svg',
+    role: 'Senior front end Developer',
+    name: 'Sarah Sharashidze'
+  }
+]
+
+
+function updateContent(contentData) {
+  const overlayText = document.querySelector('.overlay-text');
+  const personIcon = document.querySelector('.person-icon');
+  const quoteItself = document.querySelector('.quote-itself');
+  const ptext = document.querySelector('.ptext');
+  const namename = document.querySelector('.namename');
+
+  overlayText.textContent = contentData.description;
+  personIcon.src = contentData.srcPerson;
+  quoteItself.src = contentData.srcQuote;
+  ptext.textContent = contentData.role;
+  namename.textContent = contentData.name;
+}
+
+// Initialize content with the first item
+updateContent(changedContentForCheckboxes[0]);
+
+document.addEventListener('DOMContentLoaded', function() {
+  // SO HERE WE JUST FILL STRUCTURE BY CONTENT, BUT NOT CREATE STRUCTURE
+
+  // Select all checkboxes within the group
+  const checkboxes = document.querySelectorAll('.rectangle-button1');
+
+  checkboxes.forEach(function(checkbox) {
+    checkbox.addEventListener('change', function() {
+      // Get the name of the current checkbox group
+      
+      const groupName = this.name;
+
+      // Iterate over all checkboxes in the group
+      checkboxes.forEach(function(otherCheckbox) {
+        // Uncheck other checkboxes if they belong to the same group and are not the target of the change
+        if (otherCheckbox!== checkbox && otherCheckbox.name === groupName) {
+          otherCheckbox.checked = false;
+        }
+      });
+
+      const currentIndex = Array.from(checkboxes).findIndex(cb => cb.checked);
+
+      // Update the content based on the found index
+      if (currentIndex!== -1) {
+        updateContent(changedContentForCheckboxes[currentIndex]);
+      } else {
+        // Reset to the first item if no checkbox is checked
+        updateContent(changedContentForCheckboxes[0]);
+      }
+    });
+  });
+});
+
