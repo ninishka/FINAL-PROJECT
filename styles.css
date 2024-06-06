@@ -48,6 +48,10 @@ p {
 }
 .roca {
   margin: 90px;
+
+  @media (max-width: 630px) {
+    margin: 30px;
+  }
 }
 
 
@@ -65,6 +69,10 @@ p {
 .aboutmea01 {
   position: relative;
   margin: 77px 90px 0 0;
+
+  @media (max-width: 630px) {
+    margin: 10px 30px 0 0;
+  }
 }
 
 .a01 {
@@ -139,8 +147,13 @@ p {
   flex-direction: row;
   justify-content: center;
   padding: 0 79px 79px 79px ;
+
   @media (max-width: 850px) {
     flex-direction: column;
+  }
+
+  @media (max-width: 630px) {
+    padding: 0 20px 20px 20px;
   }
 }
 
@@ -155,6 +168,10 @@ p {
 }
 .Hi {
   font-size: 51px;
+
+  @media (max-width: 630px) {
+    font-size: 38px
+  }
 }
 
 .occupation {
@@ -196,7 +213,9 @@ font-size: 23px;
     margin: 7px 0;
   }
 
-
+  @media (max-width: 630px) {
+    margin: 30px;
+  }
 }
 
 .my-name-again {
@@ -210,6 +229,12 @@ font-size: 23px;
 .description {
   width:334px ;
   text-align: justify;
+
+  
+  
+  @media (max-width: 630px) {
+    width: auto;
+  }
 }
 
 
@@ -230,6 +255,11 @@ font-size: 23px;
 .middle-img-itself {
   width: 300px;
   margin: 69px;
+
+  @media (max-width: 630px) {
+    margin: 20px;
+    width: 250px;
+  }
 }
 
 .bar-wrapper {
@@ -343,29 +373,11 @@ font-size: 23px;
   }
 }
 
-/* .flex-container {
-  display: flex;
-  justify-items: center;
-  flex-wrap: wrap;
-  justify-content: center;
-
-}
-
-.box {
-  background-color: lightblue; 
-  padding: 117px 97px; 
-  text-align: center; 
-  margin: 5px;
-
-} */
 #flexCont {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   position: relative;
-  /* :hover {
-    background-color: #15263E;
-  } */
 }
 
 .box {
@@ -373,7 +385,7 @@ font-size: 23px;
   margin: 3px;
   width: 180px;
   background-color:#FAFAFA;
-  transition: background-color 0.3s ease;
+  font-family: 'Glacial Indifference-Bold', sans-serif;
 }
 
 .box:hover {
@@ -417,3 +429,64 @@ font-size: 23px;
   display: block;
 }
 
+
+
+.quote {
+  display: flex;
+  flex-direction: column;
+}
+
+.section-wrapper-img {
+  position: relative;
+ 
+}
+
+.background-img {
+  position: relative;
+  height: auto;
+  width: 100%;
+}
+
+
+
+.overlay-text,.icon-wrap,.quote {
+  padding: 15px;
+}
+
+.overlay-text {
+  max-width: 400px;
+}
+
+.content-wrap {
+  background-image: url("imgs2/clip.jpg");
+  width: 100%;
+  height: 350px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @media (max-width: 830px) {
+    flex-direction: column;
+    height: auto;
+  }
+}
+
+.quote-itself {
+  width: 32px;
+  margin-bottom: 25px;
+}
+
+.icon-wrap {
+  display: inline-block;
+  border: 2px dashed white;
+  overflow: hidden;
+  background-color: #131A36;
+  border-radius: 50%;
+  transition-duration: 1s;
+}
+
+
+.icon-wrap:hover{
+  background-color: #E93656;
+  border: 2px solid transparent;
+}
