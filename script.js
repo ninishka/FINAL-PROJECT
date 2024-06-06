@@ -247,6 +247,8 @@ function flexBoxes () {
 flexBoxes()
 
 
+//==================
+///recommendations///
 
 const changedContentForCheckboxes = [
   {
@@ -323,3 +325,87 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
+
+///===========
+///LATEST PROJECTS///
+
+const myProjectsData = [
+  {
+    src: "imgs2/heart.svg",
+    time: "2 MONTH AGO",
+    title: "middle",
+    link: "https://ninishka.github.io/middle/"
+  },
+  {
+    src: "imgs2/heart.svg",
+    time: "2 WEEKS AGO",
+    title: "Validations",
+    link: "https://ninishka.github.io/js-assignment-18/"
+  },
+  {
+    src: "imgs2/heart.svg",
+    time: "2 MONTH AGO",
+    title: "Groupwork",
+    link: "https://ninishka.github.io/groupwork2/"
+  },
+  {
+    src: "imgs2/heart.svg",
+    time: "2 MONTH AGO",
+    title: "Grid",
+    link: "https://ninishka.github.io/assignment-10/"
+  },
+  {
+    src: "imgs2/heart.svg",
+    time: "2 month Ago",
+    title: "puck puck fuck",
+    link: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox"
+  },
+  {
+    src: "imgs2/heart.svg",
+    time: "2 month Ago",
+    title: "shit in my head ",
+    link: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox"
+  },
+]
+
+const latestProjects = document.getElementById('latestProjects');
+
+function generadingMyProjects () {
+  const colors = ['#555555', '#848484'];
+  myProjectsData.forEach(i => { 
+    const projectBox = document.createElement('div');
+    projectBox.classList.add('project-box');
+
+    projectBox.style.backgroundColor = colors[0, 2  % colors.length];
+
+    const imgProjContainer = document.createElement('div');
+    imgProjContainer.classList.add('img-proj-container');
+
+
+    const imgitself = document.createElement('img');
+    imgitself.classList.add('img-itself');
+    imgitself.src = i.src;
+    
+    const monthAgo = document.createElement('h5');
+    monthAgo.classList.add('month-ago');
+    monthAgo.textContent = i.time;
+
+    const titleBox = document.createElement('a');
+    titleBox.classList.add('title-box');
+    titleBox.textContent = i.title;
+    titleBox.href = i.link;
+    console.log('titleBox', titleBox)
+
+
+    imgProjContainer.appendChild(imgitself);
+    projectBox.appendChild(imgProjContainer);
+    projectBox.appendChild(monthAgo);
+    projectBox.appendChild(titleBox); 
+
+
+    latestProjects.appendChild(projectBox)
+  })
+
+}
+
+generadingMyProjects()

@@ -566,3 +566,37 @@ font-size: 23px;
   margin: 20px;
   overflow: hidden;
 }
+
+
+
+/*latest projects */
+
+
+.lt-title {
+  text-align: center;
+  margin-top: 150px;
+  font-size: 45px;
+}
+
+.around-flex {
+  margin: 2vw 31vw;
+
+  /* @media(max-width: 650px) {
+    margin: 2vw;    
+  } */
+}
+
+.latest-projects {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  position: relative
+}
+
+.project-box {
+  padding: 70px 40px;
+  margin: -1px;
+  width: 180px;
+  background-color:#FAFAFA;
+  font-family: 'Glacial Indifference-Bold', sans-serif;
+}
