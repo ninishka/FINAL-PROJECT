@@ -292,6 +292,8 @@ font-size: 23px;
 }
 
 
+/*SECTION 3 CONTACT*/
+
 .contact-me-wrapper {
   background-color: #131A36;
   display: flex;
@@ -355,7 +357,7 @@ font-size: 23px;
   padding: 24px;
   background-color: #131A36;
   border-radius: 50%;
-  transition-duration: 1s;
+  transition-duration: 2s;
 }
 
 .rounded-border:hover {
@@ -364,6 +366,10 @@ font-size: 23px;
  }
 
 
+
+
+
+/*OFFER SECTION*/
 
 
 .arround-grid {
@@ -420,7 +426,8 @@ font-size: 23px;
   display: none;
 }
 
-.description-box {
+
+ .description-box {
   padding: 20px 0;
   text-align: justify;
   font-size: 13px;
@@ -431,6 +438,8 @@ font-size: 23px;
 }
 
 
+/*RECOMENDATIONS*/
+
 
 .quote {
   display: flex;
@@ -440,16 +449,7 @@ font-size: 23px;
   font-family: 'Glacial Indifference-Bold', sans-serif;
 }
 
-.section-wrapper-img {
-  position: relative;
- 
-}
 
-.background-img {
-  position: relative;
-  height: auto;
-  width: 100%;
-}
 
 .overlay-text,.icon-wrap,.quote {
   padding: 15px;
@@ -561,7 +561,6 @@ font-size: 23px;
   border: 3.5px solid red ;
 }
 
-
 .rectangle-wrap {
   margin: 20px;
   overflow: hidden;
@@ -650,4 +649,104 @@ font-size: 23px;
 .month-ago {
   color:#DDDDDD;
   font-size: 8px;
+}
+
+
+
+
+
+.title-lp {
+  text-align: center;
+  margin: 60px 0 35px;
+}
+
+.news {
+  color: #2ED279;
+  font-size: 8px;
+}
+
+.articles {
+  color: #2E2E2E;
+  font-size: 38px;
+}
+
+
+.div-box {
+  display: flex;
+  font-family: 'Glacial Indifference-Bold', sans-serif;
+}
+
+.year-wrap {
+  transform: rotate(271deg);
+  font-size: 20px;
+  width: max-content;
+  margin-top: 155px;
+
+}
+
+.div-for-cont {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  min-width: 60%;
+  align-items: center;
+  background-color: #FAFAFA;
+  margin-bottom: 79px;
+}
+
+.div-for-cont * {
+  margin: 10px;
+}
+
+.company {
+  color: #888888;
+  letter-spacing: 2px;
+  font-weight: 100;
+}
+
+.occupation {
+  letter-spacing: 1px;
+}
+
+.some-text {
+  letter-spacing: 2px;
+  line-height: 26px;
+  color: #494949;
+}
+
+.number-wrap {
+  background-color: #15263E;
+  width: 100px;
+  color: red;
+}
+
+.empty {
+  background-image: url('imgs/5afae8c892664274779035.jpg');
+  width: 1300px;
+}
+
+.text-wrap {
+  max-width: 400px;
+}
+
+.img-wrap {
+  border: 1px solid #FFFFFF;
+  border-radius: 50%;
+  background-color: #FFFFFF;
+  padding: 10px;
+  max-width: max-content;
+  transition-duration: 2s;
+}
+
+.img-wrap:hover {
+  background-color: #E93656;
+}
+
+.some-link {
+  text-decoration: none;
+  color: #494949;
+  font-size: 15px;
+}
+.some-link:hover {
+  color: #E93656;
 }

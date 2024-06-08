@@ -118,13 +118,16 @@ const progressBarData = [
 ];
 
 
+
+//observer 
+
 function move() {
   let width = 10;
 
   const observer = new IntersectionObserver(function(entries) {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        const id = setInterval(frame, 100);
+        const id = setInterval(frame, 50);
 
         function frame() {
           const targetWidth = progressBarData.find(bar => bar?.id === entry?.target?.id)?.finalWidth || 20; //not 100
@@ -335,18 +338,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 ///===========
-///LATEST PROJECTS///
-
-class Projects {
-  constructor(id, src, time, title, color, link) {
-    this.id = id;
-    this.src = src;
-    this.time = time;
-    this.title = title;
-    this.color = color;
-    this.link = link;
-  }
-}
+///latest projects///
 
 const myProjectsData = [
   {
@@ -445,9 +437,7 @@ function generadingMyProjects () {
     projectBox.appendChild(contentWrapper);
 
     latestProjects.appendChild(projectBox)
-  })
-  
-  return myProjectsData
+  })  
 }
 generadingMyProjects()
 
@@ -456,9 +446,10 @@ const navBox = document.getElementById('navBox');
 
 
 
+
+
 function generadingNavigations () {
   const newArr = [{ id: '0', title: 'All' }, ...myProjectsData] 
-  console.log('newArr', newArr)
   // here i created new array
   // add new object { title: 'All' } as new element in there so now it is [{ id: '0', title: 'All' }]
   // after spreading all elements from myProjectsData by '...'-operator and now it is [{ id: '0', title: 'All' }, {otherobject}, {otherobject}, {otherobject} .........]
@@ -487,7 +478,6 @@ function toggleVisibility(hui, targetId) {
       each.style.visibility = 'hidden';
     }
 
-    console.log('each', each)
 
     if (id === "0") {
       each.style.visibility = 'visible';
@@ -513,6 +503,164 @@ navProjectBtn.addEventListener('click', function() {
 generadingNavigations()
 
 
+
+//latest articles//
+
+const articlessData = [
+  {
+    id: '1',
+    imgsrc: "imgs2/designer.svg",
+    company: "IN FREELANCING COMPANY",
+    occupation: "FRONT END DEVELOPER",
+    someText: "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est dolor sit amet.",
+    date: "2011 - 2012"
+  },
+  {
+    id: '2',
+    imgsrc: "imgs2/aplication.svg",
+    company: "IN FREELANCING COMPANY",
+    occupation: "FRONT END DEVELOPER",
+    someText: "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est dolor sit amet.",
+    date: "2011 - 2012"
+  },
+  {
+    id: '3',
+    imgsrc: "imgs2/adviser.svg",
+    company: "IN FREELANCING COMPANY",
+    occupation: "FRONT END DEVELOPER",
+    someText: "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est dolor sit amet.",
+    date: "2011 - 2012"
+  }
+
+]
+
+const latestArticles = document.getElementById('latestArticles');
+
+function flexBoxes2 () {
+  articlessData.forEach(i => { 
+    const divBox = document.createElement('div');
+    divBox.classList.add('div-box');
+
+    const divForFirstCont = document.createElement('div');
+    divForFirstCont.classList.add('div-for-cont');
+
+    const imgWrap = document.createElement('div');
+    imgWrap.classList.add('img-wrap');
+
+    
+    const imgItem = document.createElement('img');
+    imgItem.classList.add('icon');
+    imgItem.src = i.imgsrc;
+
+    const textWrapper = document.createElement('div');
+    textWrapper.classList.add('text-wrap');
+    
+    const labelBox = document.createElement('h6');
+    labelBox.classList.add('company');
+    labelBox.textContent = i.company;
+
+    
+    const occupation = document.createElement('h2');
+    occupation.classList.add('occupation');
+    occupation.textContent = i.occupation;
+
+    const someText = document.createElement('p');
+    someText.classList.add('some-text');
+    someText.textContent = i.someText;
+
+    const someLink = document.createElement('a');
+    someLink.classList.add('some-link');
+    someLink.textContent = 'READ MORE';
+    someLink.href = 'index.html';
+
+    const numberWrap = document.createElement('div');
+    numberWrap.classList.add('number-wrap');
+
+    const year = document.createElement('h2');
+    year.classList.add('year-wrap');
+    year.textContent = i.date;
+
+    const coloredEmpty = document.createElement('div');
+    coloredEmpty.classList.add('empty')
+    
+
+    if(i.id === '2') {
+      divBox.style.flexDirection = 'row-reverse'
+      divForFirstCont.style.minWidth = '40%'
+    }
+
+    divBox.appendChild(divForFirstCont);
+    textWrapper.appendChild(imgWrap);
+    imgWrap.appendChild(imgItem);
+    divForFirstCont.appendChild(textWrapper);
+    textWrapper.appendChild(labelBox);
+    textWrapper.appendChild(occupation);
+    textWrapper.appendChild(someText);
+    textWrapper.appendChild(someLink);
+    
+    divBox.appendChild(numberWrap);
+    numberWrap.appendChild(year);
+
+    divBox.appendChild(coloredEmpty);
+
+    latestArticles.appendChild(divBox)
+  })
+
+}
+
+flexBoxes2()
+
+
+
+//rosa team//
+
+
+const teamClients = [
+  {
+    id: '1',
+    title: 'CLIENT 2',
+    text: 'Lorm ipm dolr amt consect mag maiores.Ipsa dolor sit magnam maores.'
+  },
+  {
+    id: '1',
+    title: 'CLIENT 2',
+    text: 'Lorm ipm dolr amt consect mag maiores.Ipsa dolor sit magnam maores.'
+  },
+  {
+    id: '1',
+    title: 'CLIENT 2',
+    text: 'Lorm ipm dolr amt consect mag maiores.Ipsa dolor sit magnam maores.'
+  },
+  {
+    id: '1',
+    title: 'CLIENT 2',
+    text: 'Lorm ipm dolr amt consect mag maiores.Ipsa dolor sit magnam maores.'
+  },
+  {
+    id: '1',
+    title: 'CLIENT 2',
+    text: 'Lorm ipm dolr amt consect mag maiores.Ipsa dolor sit magnam maores.'
+  },
+]
+
+const rosaTeam = document.getElementById('rosaTeam');
+
+function rosafunc () {
+  teamClients.forEach(i => {
+    const kubiksWrap = document.createElement('div');
+    kubiksWrap.classList.add('kubiks-wrap');
+
+    const text = document.createElement('p');
+    text.textContent = i.title;
+
+
+
+
+    kubiksWrap.appendChild(text);
+    rosaTeam.appendChild(kubiksWrap);
+  })
+}
+rosafunc()
 
 
 
