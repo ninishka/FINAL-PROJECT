@@ -427,6 +427,7 @@ function generadingMyProjects () {
     titleBox.classList.add('title-box');
     titleBox.textContent = title;
     titleBox.href = link;
+    titleBox.setAttribute('target', '_blank');
 
     const contentWrapper = document.createElement('div');
     contentWrapper.classList.add('content-wrapper');
