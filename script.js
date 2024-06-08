@@ -111,10 +111,10 @@ document.getElementById('prev').addEventListener('click', function() {
 ///progressbar///=========
 
 const progressBarData = [
-  { id: "myBar1", finalWidth: 90 },
-  { id: "myBar2", finalWidth: 85 },
-  { id: "myBar3", finalWidth: 45 },
-  { id: "myBar4", finalWidth: 20 },
+  { id: "myBar1", finalWidth: 90,  width: 10  },
+  { id: "myBar2", finalWidth: 85,  width: 10 },
+  { id: "myBar3", finalWidth: 45,  width: 10  },
+  { id: "myBar4", finalWidth: 20, width: 10 },
 ];
 
 
@@ -124,17 +124,25 @@ function move() {
   const observer = new IntersectionObserver(function(entries) {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        const id = setInterval(frame, 10);
+        const id = setInterval(frame, 100);
 
         function frame() {
-          const targetWidth = progressBarData.find(bar => bar.id === entry.target.id)?.finalWidth || 20; //not 100
+          const targetWidth = progressBarData.find(bar => bar?.id === entry?.target?.id)?.finalWidth || 20; //not 100
+          // const targetStartWidth = progressBarData.find(bar => bar?.width === entry?.target?.width)?.finalWidth || 20; //not 100
+          // if (targetWidth === 100) console.log('targetWidth 100', targetWidth)
+            // console.log('targetWidth', targetWidth)
 
           if (width >= targetWidth) {
+            // console.log('width >= targetWidth', width, width >= targetWidth)
             clearInterval(id);
           } else {
             width++;
+            // console.log('width', width)
             progressBarData.forEach(bar => {
-              if (bar.id === entry.target.id) {
+              // if (width%5) console.log('bar', bar)
+              //   console.log('entry.target.id', entry.target.id)
+
+              if (bar.id === entry?.target?.id) {
                 entry.target.style.width = width + '%';
               }
             });
@@ -256,7 +264,7 @@ const changedContentForCheckboxes = [
     srcPerson: 'imgs2/d3.svg',
     srcQuote: 'imgs2/quote.svg',
     role: 'Junior front end Developer',
-    name: 'Sarah Sharashidze'
+    name: 'Sarah Sharashidze',
   },
   {
     description: 'Esse repudiandae ex officiis molestiae soluta harum. Esse repudiandae ex officiis molestiae soluta harum. Esse repudiandae ex officiis molestiae soluta harum',
@@ -329,54 +337,79 @@ document.addEventListener('DOMContentLoaded', function() {
 ///===========
 ///LATEST PROJECTS///
 
+class Projects {
+  constructor(id, src, time, title, color, link) {
+    this.id = id;
+    this.src = src;
+    this.time = time;
+    this.title = title;
+    this.color = color;
+    this.link = link;
+  }
+}
+
 const myProjectsData = [
   {
+    id: '1',
     src: "imgs2/heart.svg",
     time: "2 MONTH AGO",
     title: "middle",
-    link: "https://ninishka.github.io/middle/"
+    color: '#555555',
+    link: "https://ninishka.github.io/middle/",
+
   },
   {
+    id: '2',
     src: "imgs2/heart.svg",
     time: "2 WEEKS AGO",
     title: "Validations",
-    link: "https://ninishka.github.io/js-assignment-18/"
+    color: "#848484",
+    link: "https://ninishka.github.io/js-assignment-18/",
   },
   {
+    id: '3',
     src: "imgs2/heart.svg",
     time: "2 MONTH AGO",
     title: "Groupwork",
-    link: "https://ninishka.github.io/groupwork2/"
+    color: '#555555',
+    link: "https://ninishka.github.io/groupwork2/",
   },
   {
+    id: '4',
     src: "imgs2/heart.svg",
     time: "2 MONTH AGO",
     title: "Grid",
-    link: "https://ninishka.github.io/assignment-10/"
+    color: '#848484',
+    link: "https://ninishka.github.io/assignment-10/",
   },
   {
+    id: '5',
     src: "imgs2/heart.svg",
     time: "2 month Ago",
-    title: "puck puck fuck",
-    link: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox"
+    title: "mozilla",
+    link: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox",
+    color: '#555555'
   },
   {
+    id: '6',
     src: "imgs2/heart.svg",
     time: "2 month Ago",
-    title: "shit in my head ",
-    link: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox"
+    title: "mozila2",
+    link: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox",
+    color: '#848484',
   },
 ]
+
+
 
 const latestProjects = document.getElementById('latestProjects');
 
 function generadingMyProjects () {
-  const colors = ['#555555', '#848484'];
-  myProjectsData.forEach(i => { 
+  myProjectsData.forEach(({color, src, time, title, link, id}) => { 
     const projectBox = document.createElement('div');
     projectBox.classList.add('project-box');
 
-    projectBox.style.backgroundColor = colors[0, 2  % colors.length];
+    projectBox.style.backgroundColor = color 
 
     const imgProjContainer = document.createElement('div');
     imgProjContainer.classList.add('img-proj-container');
@@ -384,28 +417,101 @@ function generadingMyProjects () {
 
     const imgitself = document.createElement('img');
     imgitself.classList.add('img-itself');
-    imgitself.src = i.src;
+    imgitself.src = src;
     
     const monthAgo = document.createElement('h5');
     monthAgo.classList.add('month-ago');
-    monthAgo.textContent = i.time;
+    monthAgo.textContent = time;
 
     const titleBox = document.createElement('a');
     titleBox.classList.add('title-box');
-    titleBox.textContent = i.title;
-    titleBox.href = i.link;
-    console.log('titleBox', titleBox)
+    titleBox.textContent = title;
+    titleBox.href = link;
+
+    const contentWrapper = document.createElement('div');
+    contentWrapper.classList.add('content-wrapper');
+    contentWrapper.id = id;0
+
+    contentWrapper.style.visibility = 'hidden' 
+
+
 
 
     imgProjContainer.appendChild(imgitself);
-    projectBox.appendChild(imgProjContainer);
-    projectBox.appendChild(monthAgo);
-    projectBox.appendChild(titleBox); 
-
+    contentWrapper.appendChild(imgProjContainer);
+    contentWrapper.appendChild(monthAgo);
+    contentWrapper.appendChild(titleBox); 
+    projectBox.appendChild(contentWrapper);
 
     latestProjects.appendChild(projectBox)
   })
+  
+  return myProjectsData
+}
+generadingMyProjects()
 
+
+const navBox = document.getElementById('navBox');
+
+
+
+function generadingNavigations () {
+  const newArr = [{ id: '0', title: 'All' }, ...myProjectsData] 
+  console.log('newArr', newArr)
+  // here i created new array
+  // add new object { title: 'All' } as new element in there so now it is [{ id: '0', title: 'All' }]
+  // after spreading all elements from myProjectsData by '...'-operator and now it is [{ id: '0', title: 'All' }, {otherobject}, {otherobject}, {otherobject} .........]
+
+  const navBtnWrapper = document.createElement('div')
+  navBtnWrapper.classList.add('nav-btn-wrap')
+
+
+  newArr.forEach(({ id, title }) => {
+    // console.log('id', id, title) this how i can receive i.id and i.title 
+
+    const navProjectBtn = document.createElement('button');
+    navProjectBtn.classList.add('nav-button');
+    navProjectBtn.textContent = title;
+
+
+    // here i create event if click - call func inside 
+function toggleVisibility(hui, targetId) {
+  hui.forEach(each => {
+    if (each.id === targetId) {
+      each.style.visibility = 'visible';
+      each.style.backgroundColor = '#000000';
+    } 
+
+    if (each.id !== targetId) {
+      each.style.visibility = 'hidden';
+    }
+
+    console.log('each', each)
+
+    if (id === "0") {
+      each.style.visibility = 'visible';
+      each.style.backgroundColor = '#000000';
+
+    }
+  });
 }
 
-generadingMyProjects()
+// Then, in your event listener:
+navProjectBtn.addEventListener('click', function() {
+  const hui = latestProjects.querySelectorAll('.content-wrapper');
+  toggleVisibility(hui, id);
+});
+    
+
+    navBtnWrapper.appendChild(navProjectBtn)
+  })
+
+  navBox.appendChild(navBtnWrapper)
+}
+
+generadingNavigations()
+
+
+
+
+
