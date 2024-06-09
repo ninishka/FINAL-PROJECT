@@ -8,7 +8,7 @@
 </head>
 <body>
   <main>
-    <section class="colored-back">
+    <header class="colored-back">
         <div class="headerlike">
             <div class="roca">
               <h2 class="h2">Roca<span class="blue-dot">.</span> </h2> 
@@ -39,7 +39,7 @@
             </div>
           </div>
         </div>
-    </section>
+    </header>
     <section class="section2-wrapper">
       <div class="information">
         <h2 class="my-name-again">Nini Zambakhidze</h2>
@@ -199,8 +199,43 @@
         <p class="news">NEWS & EVENT</p> 
         <h1 class="articles">Rosa Team</h1>
       </div>
-      <div id="rosaTeam"></div>
+      <div id="rosaTeam" class="rosa-team"></div>
     </section>
+    <footer>
+      <div class="map-background">
+        <div class="contact-us">
+          <div class="title-wrap">
+            <h1>CONTACT US</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+          </div>
+          <div>
+            <form id="registrationForm">
+              <fieldset>
+                <div class="input-row">
+                  <div class="field">
+                    <label for="first-name">Your Name*</label>
+                    <input type="text" id="first-name" name="first-name">
+                  </div>
+                  <div class="field">
+                    <label for="email">Email Address*</label>
+                    <input type="email" id="email" name="email">
+                  </div>
+                  <div class="field">
+                    <label for="website">Your Website*</label>
+                    <input type="url" id="website" name="website">
+                  </div>
+                </div>
+                
+                <label for="message">Message*</label>
+                <textarea class="text-area" id="message" name="message"></textarea>
+              </fieldset>
+              
+              <button type="submit">Register</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </footer>
   </main>
   <script src="script.js"></script>
 </body>

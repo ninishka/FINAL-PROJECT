@@ -181,6 +181,11 @@ document.addEventListener('DOMContentLoaded', move);
 
 
 // created extandable data array of objects
+
+
+
+//offer section//
+
 const flexCont = document.getElementById('flexCont');
 const boxesData = [
   {
@@ -650,13 +655,25 @@ function rosafunc () {
     const kubiksWrap = document.createElement('div');
     kubiksWrap.classList.add('kubiks-wrap');
 
+    const textWrapWrap = document.createElement('div');
+    textWrapWrap.classList.add('text-wrapper');
+
+    const textWrap = document.createElement('div');
+    textWrap.classList.add('text-wrapp');
+
+    const textTitle = document.createElement('h3');
+    textTitle.classList.add('rosa-title')
+    textTitle.textContent = i.title;
+
     const text = document.createElement('p');
-    text.textContent = i.title;
+    text.classList.add('rosa-text')
+    text.textContent = i.text;
 
 
-
-
-    kubiksWrap.appendChild(text);
+    kubiksWrap.appendChild(textWrapWrap);
+    textWrapWrap.appendChild(textWrap);
+    textWrap.appendChild(textTitle);
+    textWrap.appendChild(text);
     rosaTeam.appendChild(kubiksWrap);
   })
 }
@@ -664,3 +681,114 @@ rosafunc()
 
 
 
+// document.getElementById('registrationForm').addEventListener('submit', function(event) {
+//   event.preventDefault();
+
+
+//   // let firstNameInput = document.getElementById('first-name');
+//   // let lastNameInput = document.getElementById('last-name');
+  
+//   // let confirmPasswordInput = document.getElementById('confirm-password');
+//   // let descriptionTextarea = document.getElementById('description');
+//   let firstNameInput = document.getElementById('first-name');
+//   let websiteInput = document.getElementById('website');
+//   let messageTextarea = document.getElementById('message');
+//   let emailInput = document.getElementById('email');
+//   let errors = []; // Array to hold error messages
+
+//   function clearErrors() {
+//     // Clear any existing errors
+//     while(document.body.firstChild) {
+//       document.body.removeChild(document.body.firstChild);
+//     }
+//   }
+
+//   // Validate each field
+//   let isValid = true;
+
+//   // First Name Validation
+//   let namePattern = /^[a-zA-Z\s-]+$/; // Regex pattern for first name
+//   if (!namePattern.test(firstNameInput.value)) {
+//     errors.push("First Name must only contain letters, spaces, or hyphens.");
+//     isValid = false;
+//   }
+
+//   // Email Validation
+//   let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+//   if (!emailRegex.test(emailInput.value)) {
+//     errors.push("Please enter a valid email address.");
+//     isValid = false;
+//   }
+
+
+
+//   // Description Validation
+//   if (messageTextarea.value.length > 100) {
+//     errors.push("Description cannot exceed 100 characters.");
+//     isValid = false;
+//   }
+
+//   if (errors.length === 0 && isValid) {
+//     alert("Registration successful!");
+//     clearErrors();
+//   } else if (errors.length > 0) {
+//     // Display all errors in an alert
+//     alert(errors.join("\n"));
+//     clearErrors();
+//   }
+// });
+
+
+document.getElementById('registrationForm').addEventListener('submit', function(event) {
+  event.preventDefault();
+
+  let firstNameInput = document.getElementById('first-name');
+  let websiteInput = document.getElementById('website');
+  let messageTextarea = document.getElementById('message');
+  let emailInput = document.getElementById('email');
+  let errors = []; // Array to hold error messages
+  
+
+  function clearErrors() {
+    // Clear any existing errors
+    while(document.body.firstChild) {
+      document.body.removeChild(document.body.firstChild);
+    }
+  }
+
+  // Validate each field
+  let isValid = true;
+
+  // First Name Validation
+  if (firstNameInput.value.length < 6) {
+    firstNameError.textContent = "First Name must be at least 6 characters.";
+    document.body.appendChild(firstNameError);
+    isValid = false;
+  }
+
+
+  // Email Validation
+  let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(emailInput.value)) {
+    errors.push("Please enter a valid email address.");
+    isValid = false;
+  }
+
+  
+  // Description Validation
+  if (messageTextarea.value.length > 100) {
+    errors.push("Description cannot exceed 100 characters.");
+    isValid = false;
+  }
+
+  // Early return if the form is valid and there are no errors
+  if (isValid && errors.length === 0) {
+    alert("Registration successful!");
+    clearErrors();
+    return; // Prevent further execution
+  }
+
+  // Display all errors in an alert
+  alert(errors.join("\n"));
+  clearErrors();
+});
