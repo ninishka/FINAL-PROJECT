@@ -22,10 +22,7 @@
           </div>
         </div>
         <div class="person-main-info">
-          <button class="button-next" id="prev">&lt;</button>
-          <div id="slider" class="slider">
-          </div>
-          <button class="button-next" id="next">&gt;</button>
+          <div id="slider" class="slider"></div>
           <div class="name-occupation">
             <h2 class="Hi">Hi, I' Am <br>Nini Zambakhidze</h2>
             <h3 class="occupation">I am Front End Developer</h3>
@@ -203,38 +200,37 @@
       </div>
       <div id="rosaTeam" class="rosa-team"></div>
     </section>
-    <!-- <footer>
+    <section>
       <div class="map-background">
         <div class="contact-us">
           <div class="title-wrap">
-            <h1>CONTACT US</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+            <h1 class="up-title">CONTACT US</h1>
+            <h5 class="undertitle">Lorem ipsum dolor sit amet, consectetur adipiscing elit</h5>
           </div>
-          <div>
-            <form id="registrationForm">
-              <fieldset>
+            <form id="registrationForm" class="reg-form">
+              <fieldset class="reg-form-fielset">
                 <div class="input-row">
                   <div class="field">
-                    <label for="first-name">Your Name*</label>
-                    <input type="text" id="first-name" name="first-name" required>
+                    <label for="first-name"></label>
+                    <input type="text" id="first-name" name="first-name" required placeholder="Your Name*">
                   </div>
                   <div class="field">
-                    <label for="email">Email Address*</label>
-                    <input type="email" id="email" name="email" required>
+                    <label for="email"></label>
+                    <input type="email" id="email" name="email" required placeholder="Email Address*">
                   </div>
                   <div class="field">
-                    <label for="website">Your Website*</label>
-                    <input type="url" id="website" name="website" required>
+                    <label for="website"></label>
+                    <input type="url" id="website" name="website" required placeholder="Your Website*">
                   </div>
                 </div>
-                
-                <label for="message">Message*</label>
-                <textarea class="text-area" id="message" name="message" required></textarea>
+                <label for="message"></label>
+                <textarea class="text-area" id="message" name="message" required placeholder="Message*"></textarea>
               </fieldset>
-              
-              <button type="submit">Register</button>
+              <div class="send-button-wrap">
+                <button class="send-button" type="submit">SEND MESSAGE</button>
+              </div>
             </form>
-          </div>
+
           <div id="successModal" class="modal">
             <div class="modal-content">
               <h2>Thank you for getting in touch!</h2>
@@ -243,7 +239,27 @@
           </div>          
         </div>
       </div>
-    </footer> -->
+    </section>
+    <footer>
+      <div class="footer-up">
+        <div class="footer-content">
+          <div class="roca2">
+            <h2 class="white-roca">Roca<span class="red-dot">.</span> </h2> 
+          </div>
+          <h4 class="footer-text">
+            Lorem ipsum dolor sit amet consectetur adipiscing elit sed doeiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam quis nostrud.
+          </h4>
+          <div class="icons-wrap">
+            <a  href="https://www.facebook.com/nini.zambaxidze.7" target="_blank"><img class="icons" src="imgs/icons8-facebook (1).svg" alt="facebook"></a>
+            <a  href="https://www.facebook.com/nini.zambaxidze.7" target="_blank"><img  class="icons" src="imgs/icons8-google-plus.svg" alt="googlleplus"></a>
+            <a  href="https://www.instagram.com/morrisonsdaughter70/" target="_blank"><img class="icons" src="imgs/icons8-instagram.svg" alt="instagram"></a>
+            <a  href="https://www.pinterest.com/zambakhidzenini740/" target="_blank"><img class="icons" src="imgs/icons8-pinterest (1).svg" alt="pinterest"></a>
+            <a  href="https://www.facebook.com/nini.zambaxidze.7" target="_blank"><img class="icons" src="imgs/icons8-twitter.svg" alt="twitter"></a>
+          </div>
+        </div>
+      </div>
+      <div class="under-line">© All right reserved 2019. <div style="color: wheat; margin: 0 5px;"> Rosa </div>  - Creative Agency Website PSD Template.</div>
+    </footer>
   </main>
   <script src="script.js"></script>
 </body>

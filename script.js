@@ -1,4 +1,4 @@
-// adding in structure:
+// FIRST SECTION
 
 // get elem in const to use later
 const slider = document.getElementById('slider');
@@ -19,14 +19,22 @@ const slidesData = [
   },
 ]
 
-
-
 // creating func to generate content inside -> const slider
 function generateSlides () {
   // creating parent element ul for use just after creating
   // every li to every slidesData array`s object
   // thats why it is outside of cicle
   const ulElement = document.createElement('ul');
+  const btnPrev = document.createElement('button');
+  const btnNext = document.createElement('button');
+  btnPrev.classList.add('button-next');
+  btnNext.classList.add('button-next');
+
+  btnPrev.id = 'prev'
+  btnPrev.textContent = '<';
+
+  btnNext.id = 'next'
+  btnNext.textContent = '>';
 
   // start cicle for every every slidesData array`s object
   slidesData.forEach(i => { 
@@ -44,18 +52,15 @@ function generateSlides () {
 
     liElement.appendChild(imgItem); // placing imgItem inside li
     ulElement.appendChild(liElement); // placing liElement inside ulElement
+    slider.appendChild(btnPrev); // placing ulElement inside slider
     slider.appendChild(ulElement); // placing ulElement inside slider
+    slider.appendChild(btnNext); // placing ulElement inside slider
   })
 }
 
 generateSlides()
 
-
-
-
-//
 // animation of imgs//
-
 
 // after generateSlides there are full ul-li-img structure and styles, now it can be used below
 // if this line whould be upstairs it whould be empty - it can be received only after func generateSlides finish
@@ -68,8 +73,6 @@ function showSlide(index) {
     slide.style.display = i === index? 'block' : 'none';
   });
 }
-
-
 
 function changeSlide (movingForward = true) { // here movingForward is true by default, unless i send other value instead
   slides[activeSlide].classList.remove('active');
@@ -105,8 +108,15 @@ document.getElementById('prev').addEventListener('click', function() {
 });
 
 
+// ============================================================================
 
 
+
+
+
+
+
+// SECOND SECTION
 
 ///progressbar///=========
 
@@ -116,7 +126,6 @@ const progressBarData = [
   { id: "myBar3", finalWidth: 45,  width: 10  },
   { id: "myBar4", finalWidth: 20, width: 10 },
 ];
-
 
 
 //observer 
@@ -131,20 +140,12 @@ function move() {
 
         function frame() {
           const targetWidth = progressBarData.find(bar => bar?.id === entry?.target?.id)?.finalWidth || 20; //not 100
-          // const targetStartWidth = progressBarData.find(bar => bar?.width === entry?.target?.width)?.finalWidth || 20; //not 100
-          // if (targetWidth === 100) console.log('targetWidth 100', targetWidth)
-            // console.log('targetWidth', targetWidth)
 
           if (width >= targetWidth) {
-            // console.log('width >= targetWidth', width, width >= targetWidth)
             clearInterval(id);
           } else {
             width++;
-            // console.log('width', width)
             progressBarData.forEach(bar => {
-              // if (width%5) console.log('bar', bar)
-              //   console.log('entry.target.id', entry.target.id)
-
               if (bar.id === entry?.target?.id) {
                 entry.target.style.width = width + '%';
               }
@@ -161,10 +162,6 @@ function move() {
 }
 
 document.addEventListener('DOMContentLoaded', move);
-
-
-
-
 
 
 
@@ -185,6 +182,12 @@ document.addEventListener('DOMContentLoaded', move);
 
 
 //offer section//
+
+
+
+
+
+// 8 SQUARES SECTION
 
 const flexCont = document.getElementById('flexCont');
 const boxesData = [
@@ -262,6 +265,19 @@ function flexBoxes () {
 
 flexBoxes()
 
+
+
+// ======================================================
+
+
+
+
+
+
+
+
+
+// CHECKBOX SECTON
 
 //==================
 ///recommendations///
@@ -342,67 +358,84 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
-///===========
+
+// ========================================================
+
+
+
+
+
+
+
+/// LATEST PROJECTS SECTION
 ///latest projects///
 
 const myProjectsData = [
   {
     id: '1',
     src: "imgs2/heart.svg",
-    time: "2 MONTH AGO",
     title: "middle",
     color: '#555555',
     link: "https://ninishka.github.io/middle/",
-
+    date: "04.25.2024",
   },
   {
     id: '2',
     src: "imgs2/heart.svg",
-    time: "2 WEEKS AGO",
     title: "Validations",
     color: "#848484",
     link: "https://ninishka.github.io/js-assignment-18/",
+    date: "05.20.2024",
   },
   {
     id: '3',
     src: "imgs2/heart.svg",
-    time: "2 MONTH AGO",
     title: "Groupwork",
     color: '#555555',
     link: "https://ninishka.github.io/groupwork2/",
+    date: "04.11.2024",
+
   },
   {
     id: '4',
     src: "imgs2/heart.svg",
-    time: "2 MONTH AGO",
     title: "Grid",
     color: '#848484',
     link: "https://ninishka.github.io/assignment-10/",
+    date: "04.04.2024",
+
   },
   {
     id: '5',
     src: "imgs2/heart.svg",
-    time: "2 month Ago",
     title: "mozilla",
     link: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox",
-    color: '#555555'
+    color: '#555555',
+    date: "04.19.2024",
   },
   {
     id: '6',
     src: "imgs2/heart.svg",
-    time: "2 month Ago",
     title: "mozila2",
     link: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox",
     color: '#848484',
+    date: "04.19.2024",
+
   },
 ]
 
 
+function getMonthsBetweenDates(startDate, endDate) {
+  const monthsDifference = Math.floor((endDate - startDate) / (1000 * 60 * 60 * 24 * 30));
+  return monthsDifference || 'less than 1'; // IF 0 MONTS = RETURN 'less than 1'
+}
 
 const latestProjects = document.getElementById('latestProjects');
 
 function generadingMyProjects () {
-  myProjectsData.forEach(({color, src, time, title, link, id}) => { 
+  myProjectsData.forEach(({ // destructurisation = this how 'i.color' can be used like just 'color' 
+    color, src, title, link, id, date
+  }) => { 
     const projectBox = document.createElement('div');
     projectBox.classList.add('project-box');
 
@@ -418,7 +451,13 @@ function generadingMyProjects () {
     
     const monthAgo = document.createElement('h5');
     monthAgo.classList.add('month-ago');
-    monthAgo.textContent = time;
+    
+    const startDate = new Date(date); // creating date auto format - date of project
+    const endDate = new Date(); // create current date/time
+    const monthsBetween = getMonthsBetweenDates(startDate, endDate);
+
+    const ago = `${monthsBetween} monts ago`
+    monthAgo.textContent = ago.toUpperCase();
 
     const titleBox = document.createElement('a');
     titleBox.classList.add('title-box');
@@ -451,7 +490,7 @@ const navBox = document.getElementById('navBox');
 
 
 
-
+// NAV FOR PROJECTS
 
 function generadingNavigations () {
   const newArr = [{ id: '0', title: 'All' }, ...myProjectsData] 
@@ -474,29 +513,28 @@ function generadingNavigations () {
     // here i create event if click - call func inside 
 function toggleVisibility(hui, targetId) {
   hui.forEach(each => {
-    if (each.id === targetId) {
+    if (each.id === targetId) { // IF CLICKED = SHOWING
       each.style.visibility = 'visible';
       each.style.backgroundColor = '#000000';
     } 
 
-    if (each.id !== targetId) {
+    if (each.id !== targetId) { // IF UNCLICKED = HIDDING
       each.style.visibility = 'hidden';
     }
 
 
-    if (id === "0") {
+    if (id === "0") { // IF 'ALL' CLICKED - SHOW ALL
       each.style.visibility = 'visible';
       each.style.backgroundColor = '#000000';
-
     }
   });
 }
 
-// Then, in your event listener:
-navProjectBtn.addEventListener('click', function() {
-  const hui = latestProjects.querySelectorAll('.content-wrapper');
-  toggleVisibility(hui, id);
-});
+    // HERE IF CLICKED - toggleVisibility RECIEVED IT`S ID
+    navProjectBtn.addEventListener('click', function() {
+      const hui = latestProjects.querySelectorAll('.content-wrapper');
+      toggleVisibility(hui, id);
+    });
     
 
     navBtnWrapper.appendChild(navProjectBtn)
@@ -506,6 +544,18 @@ navProjectBtn.addEventListener('click', function() {
 }
 
 generadingNavigations()
+
+
+// ========================================================================
+
+
+
+
+
+
+
+
+
 
 
 
@@ -524,7 +574,7 @@ const articlessData = [
     id: '2',
     imgsrc: "imgs2/aplication.svg",
     company: "IN FREELANCING COMPANY",
-    occupation: "FRONT END DEVELOPER",
+    occupation: "Application Design",
     someText: "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est dolor sit amet.",
     date: "2011 - 2012"
   },
@@ -532,7 +582,7 @@ const articlessData = [
     id: '3',
     imgsrc: "imgs2/adviser.svg",
     company: "IN FREELANCING COMPANY",
-    occupation: "FRONT END DEVELOPER",
+    occupation: "Personal Adviser",
     someText: "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est dolor sit amet.",
     date: "2011 - 2012"
   }
@@ -617,33 +667,44 @@ flexBoxes2()
 
 
 
+
+
+
+
+
+
+
+
+
+
+
 //rosa team//
 
 
 const teamClients = [
   {
     id: '1',
+    title: 'CLIENT 1',
+    text: 'Lorm ipm dolr amt consect mag maiores.Ipsa dolor sit magnam maores.'
+  },
+  {
+    id: '2',
     title: 'CLIENT 2',
     text: 'Lorm ipm dolr amt consect mag maiores.Ipsa dolor sit magnam maores.'
   },
   {
-    id: '1',
-    title: 'CLIENT 2',
+    id: '3',
+    title: 'CLIENT 3',
     text: 'Lorm ipm dolr amt consect mag maiores.Ipsa dolor sit magnam maores.'
   },
   {
-    id: '1',
-    title: 'CLIENT 2',
+    id: '4',
+    title: 'CLIENT 4',
     text: 'Lorm ipm dolr amt consect mag maiores.Ipsa dolor sit magnam maores.'
   },
   {
-    id: '1',
-    title: 'CLIENT 2',
-    text: 'Lorm ipm dolr amt consect mag maiores.Ipsa dolor sit magnam maores.'
-  },
-  {
-    id: '1',
-    title: 'CLIENT 2',
+    id: '4',
+    title: 'CLIENT 5',
     text: 'Lorm ipm dolr amt consect mag maiores.Ipsa dolor sit magnam maores.'
   },
 ]
@@ -691,7 +752,7 @@ document.getElementById('registrationForm').addEventListener('submit', async fun
   let messageTextarea = document.getElementById('message');
   let emailInput = document.getElementById('email');
 
-  
+  const formData = new FormData();
   formData.append('name', firstNameInput.value);
   formData.append('email', emailInput.value);
   formData.append('website', websiteInput.value);
