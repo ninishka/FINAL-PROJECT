@@ -7,15 +7,15 @@ const slider = document.getElementById('slider');
 const slidesData = [
   {
     title: 'Title1',
-    src: 'imgs/Untitled 16 (2)-pdf.png'
+    src: 'imgs/tp1.png'
   },
   {
     title: 'Title2',
-    src: 'imgs/Untitled 16 (2)-pdf.png'
+    src: 'imgs/tpt2.png'
   },
   {
     title: 'Title3',
-    src: 'imgs/Untitled 16 (2)-pdf.png'
+    src: 'imgs/tpt3.png'
   },
 ]
 
@@ -32,7 +32,7 @@ function generateSlides () {
   slidesData.forEach(i => { 
     // lets name every slidesData array`s object as i
     // console.log('i', i) === { title: 'Title1', src: 'imgs/Untitled 16 (2)-pdf.png'}
-
+    
     // creating li tags for every slidesData array`s object (i)
     const liElement = document.createElement('li');
     
@@ -681,114 +681,47 @@ rosafunc()
 
 
 
-// document.getElementById('registrationForm').addEventListener('submit', function(event) {
-//   event.preventDefault();
 
 
-//   // let firstNameInput = document.getElementById('first-name');
-//   // let lastNameInput = document.getElementById('last-name');
-  
-//   // let confirmPasswordInput = document.getElementById('confirm-password');
-//   // let descriptionTextarea = document.getElementById('description');
-//   let firstNameInput = document.getElementById('first-name');
-//   let websiteInput = document.getElementById('website');
-//   let messageTextarea = document.getElementById('message');
-//   let emailInput = document.getElementById('email');
-//   let errors = []; // Array to hold error messages
-
-//   function clearErrors() {
-//     // Clear any existing errors
-//     while(document.body.firstChild) {
-//       document.body.removeChild(document.body.firstChild);
-//     }
-//   }
-
-//   // Validate each field
-//   let isValid = true;
-
-//   // First Name Validation
-//   let namePattern = /^[a-zA-Z\s-]+$/; // Regex pattern for first name
-//   if (!namePattern.test(firstNameInput.value)) {
-//     errors.push("First Name must only contain letters, spaces, or hyphens.");
-//     isValid = false;
-//   }
-
-//   // Email Validation
-//   let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-//   if (!emailRegex.test(emailInput.value)) {
-//     errors.push("Please enter a valid email address.");
-//     isValid = false;
-//   }
-
-
-
-//   // Description Validation
-//   if (messageTextarea.value.length > 100) {
-//     errors.push("Description cannot exceed 100 characters.");
-//     isValid = false;
-//   }
-
-//   if (errors.length === 0 && isValid) {
-//     alert("Registration successful!");
-//     clearErrors();
-//   } else if (errors.length > 0) {
-//     // Display all errors in an alert
-//     alert(errors.join("\n"));
-//     clearErrors();
-//   }
-// });
-
-
-document.getElementById('registrationForm').addEventListener('submit', function(event) {
+document.getElementById('registrationForm').addEventListener('submit', async function(event) {
   event.preventDefault();
 
   let firstNameInput = document.getElementById('first-name');
   let websiteInput = document.getElementById('website');
   let messageTextarea = document.getElementById('message');
   let emailInput = document.getElementById('email');
-  let errors = []; // Array to hold error messages
-  
 
-  function clearErrors() {
-    // Clear any existing errors
-    while(document.body.firstChild) {
-      document.body.removeChild(document.body.firstChild);
+  
+  formData.append('name', firstNameInput.value);
+  formData.append('email', emailInput.value);
+  formData.append('website', websiteInput.value);
+  formData.append('message', messageTextarea.value);
+
+  try {
+    //აგზავნის პოსტ რექვესთს 
+    const response = await fetch('https://borjomi.loremipsum.ge/api/send-message', {
+      method: 'POST',
+      body: formData,
+    });
+
+    console.log('response', response)
+
+    //ამოწმებს თუ რექვესთი წარმატებული იყო
+    if (response.ok) {
+      const result = await response.json();
+      console.log('result', result)
+      if (result.status === 1) {
+        //აჩვენებს წარმატებულ მოდალს 
+        document.getElementById('successModal').style.display = 'block';
+      } else {
+        throw new Error('Unexpected response status');
+      }
+    } else {
+      throw new Error('Network response was not ok');
     }
+  } catch (error) {
+    console.error('There was a problem with your fetch operation:', error);
+   //აჩვენებს ერორ შეტყობინებას (handle error) 
   }
-
-  // Validate each field
-  let isValid = true;
-
-  // First Name Validation
-  if (firstNameInput.value.length < 6) {
-    firstNameError.textContent = "First Name must be at least 6 characters.";
-    document.body.appendChild(firstNameError);
-    isValid = false;
-  }
-
-
-  // Email Validation
-  let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if (!emailRegex.test(emailInput.value)) {
-    errors.push("Please enter a valid email address.");
-    isValid = false;
-  }
-
-  
-  // Description Validation
-  if (messageTextarea.value.length > 100) {
-    errors.push("Description cannot exceed 100 characters.");
-    isValid = false;
-  }
-
-  // Early return if the form is valid and there are no errors
-  if (isValid && errors.length === 0) {
-    alert("Registration successful!");
-    clearErrors();
-    return; // Prevent further execution
-  }
-
-  // Display all errors in an alert
-  alert(errors.join("\n"));
-  clearErrors();
 });
+

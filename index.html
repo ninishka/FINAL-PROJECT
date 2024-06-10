@@ -10,6 +10,7 @@
   <main>
     <header class="colored-back">
         <div class="headerlike">
+          <div class="header-wrapper">
             <div class="roca">
               <h2 class="h2">Roca<span class="blue-dot">.</span> </h2> 
               <h5 class="resume-template">Resume Template</h5>
@@ -18,6 +19,7 @@
               <h1 class="a01">01</h1>
               <h2 class="aboutme">About me</h2>
             </div>
+          </div>
         </div>
         <div class="person-main-info">
           <button class="button-next" id="prev">&lt;</button>
@@ -201,7 +203,7 @@
       </div>
       <div id="rosaTeam" class="rosa-team"></div>
     </section>
-    <footer>
+    <!-- <footer>
       <div class="map-background">
         <div class="contact-us">
           <div class="title-wrap">
@@ -214,28 +216,34 @@
                 <div class="input-row">
                   <div class="field">
                     <label for="first-name">Your Name*</label>
-                    <input type="text" id="first-name" name="first-name">
+                    <input type="text" id="first-name" name="first-name" required>
                   </div>
                   <div class="field">
                     <label for="email">Email Address*</label>
-                    <input type="email" id="email" name="email">
+                    <input type="email" id="email" name="email" required>
                   </div>
                   <div class="field">
                     <label for="website">Your Website*</label>
-                    <input type="url" id="website" name="website">
+                    <input type="url" id="website" name="website" required>
                   </div>
                 </div>
                 
                 <label for="message">Message*</label>
-                <textarea class="text-area" id="message" name="message"></textarea>
+                <textarea class="text-area" id="message" name="message" required></textarea>
               </fieldset>
               
               <button type="submit">Register</button>
             </form>
           </div>
+          <div id="successModal" class="modal">
+            <div class="modal-content">
+              <h2>Thank you for getting in touch!</h2>
+              <p>We appreciate you contacting us.</p>
+            </div>
+          </div>          
         </div>
       </div>
-    </footer>
+    </footer> -->
   </main>
   <script src="script.js"></script>
 </body>
